@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moda Bijoux - Elegância e Sofisticação</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #d63384;
+            --secondary-color: #6f42c1;
+            --accent-color: #e9c3ff;
+            --gold-color: #d4af37;
+            --dark-color: #2c2c2c;
+            --light-color: #f8f9fa;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f0fc"/><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="%23d63384" opacity="0.3"/><circle cx="50" cy="50" r="20" fill="%236f42c1" opacity="0.2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+        }
+        
+        .product-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .bg-custom-primary {
+            background-color: var(--primary-color);
+        }
+        
+        .text-custom-primary {
+            color: var(--primary-color);
+        }
+        
+        .text-gold {
+            color: var(--gold-color);
+        }
+        
+        .btn-custom-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            border-radius: 25px;
+            padding: 10px 25px;
+            transition: all 0.3s;
+        }
+        
+        .btn-custom-primary:hover {
+            background-color: #c22574;
+            border-color: #c22574;
+            transform: scale(1.05);
+        }
+        
+        .btn-custom-secondary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+            border-radius: 25px;
+            padding: 10px 25px;
+            transition: all 0.3s;
+        }
+        
+        .btn-custom-secondary:hover {
+            background-color: #5e36b0;
+            border-color: #5e36b0;
+            transform: scale(1.05);
+        }
+        
+        .text-custom-accent {
+            color: var(--accent-color);
+        }
+        
+        .contact-info {
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        .category-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--gold-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .promo-banner {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .brand-section {
+            background-color: var(--light-color);
+            padding: 80px 0;
+        }
+        
+        .testimonial-card {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .newsletter-section {
+            background: linear-gradient(rgba(214, 51, 132, 0.9), rgba(111, 66, 193, 0.9));
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 15px auto;
+        }
+        
+        .fashion-icon {
+            font-size: 1.2rem;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        <div class="container">
+            <p class="mb-0">✨ Frete grátis para compras acima de R$ 200,00 | Primeira troca gratuita ✨</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="bi bi-gem text-custom-primary me-2"></i>
+                <span class="text-custom-primary">Moda Bijoux</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#inicio">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#colecoes">Coleções</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#depoimentos">Depoimentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-dark me-2"><i class="bi bi-search"></i></a>
+                    <a href="#" class="btn btn-outline-dark me-2"><i class="bi bi-person"></i></a>
+                    <a href="#" class="btn btn-outline-dark position-relative">
+                        <i class="bi bi-bag"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-custom-primary">2</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Elegância que Transforma</h1>
+            <p class="lead mb-4">Descubra peças exclusivas que realçam sua beleza única</p>
+            <a href="#colecoes" class="btn btn-light btn-lg px-4 py-2 me-3">
+                <i class="bi bi-bag me-2"></i> Ver Coleção
+            </a>
+            <a href="#sobre" class="btn btn-outline-light btn-lg px-4 py-2">
+                Nossa História
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="feature-icon">
+                        <i class="bi bi-truck"></i>
+                    </div>
+                    <h4>Entrega Rápida</h4>
+                    <p class="text-muted">Receba suas compras em até 48h na região de Rio Verde</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-icon">
+                        <i class="bi bi-arrow-left-right"></i>
+                    </div>
+                    <h4>Trocas Fáceis</h4>
+                    <p class="text-muted">Primeira troca gratuita em até 30 dias</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h4>Qualidade Garantida</h4>
+                    <p class="text-muted">Produtos selecionados com os melhores tecidos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section id="colecoes" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title fw-bold">Nossas Coleções</h2>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card h-100">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23f8f0fc'/><path d='M100,100 L300,100 L300,300 L100,300 Z' fill='%23d63384' opacity='0.2'/><path d='M120,120 L280,120 L250,280 L150,280 Z' fill='%23d63384' opacity='0.5'/></svg>" class="card-img-top" alt="Vestidos Elegantes">
+                            <span class="category-badge">Vestidos</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Vestidos Elegantes</h5>
+                            <p class="card-text flex-grow-1">Coleção exclusiva de vestidos para ocasiões especiais. Tecidos fluidos e modelagem impecável.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-custom-primary mb-0">A partir de R$ 189,90</span>
+                                <a href="#" class="btn btn-custom-primary">
+                                    <i class="bi bi-cart-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card h-100">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23f0f4ff'/><path d='M150,120 L250,120 L280,250 L120,250 Z' fill='%236f42c1' opacity='0.5'/></svg>" class="card-img-top" alt="Blusas Femininas">
+                            <span class="category-badge">Blusas</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Blusas Sofisticadas</h5>
+                            <p class="card-text flex-grow-1">Blusas em algodão e seda com cortes modernos. Perfeitas para o dia a dia ou trabalho.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-custom-primary mb-0">A partir de R$ 79,90</span>
+                                <a href="#" class="btn btn-custom-primary">
+                                    <i class="bi bi-cart-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card h-100">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23fff0f6'/><path d='M120,150 L280,150 L280,320 L120,320 Z' fill='%23d63384' opacity='0.4'/><path d='M140,180 L260,180 L260,300 L140,300 Z' fill='%23d63384' opacity='0.7'/></svg>" class="card-img-top" alt="Calças e Saias">
+                            <span class="category-badge">Calças & Saias</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Calças e Saias</h5>
+                            <p class="card-text flex-grow-1">Modelagens que valorizam o corpo feminino. Do casual ao elegante, temos a peça ideal.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-custom-primary mb-0">A partir de R$ 119,90</span>
+                                <a href="#" class="btn btn-custom-primary">
+                                    <i class="bi bi-cart-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-custom-secondary btn-lg">Ver Todas as Coleções</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="brand-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">Nossa História</h2>
+                    <p class="lead">A Moda Bijoux nasceu do sonho de levar elegância e sofisticação para todas as mulheres de Rio Verde e região.</p>
+                    <p>Com anos de experiência no mercado de moda feminina, selecionamos cuidadosamente cada peça para garantir qualidade, conforto e estilo. Nossa missão é empoderar mulheres através da moda, oferecendo roupas que as façam sentir especiais em qualquer ocasião.</p>
+                    
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-check-circle-fill text-custom-primary me-2"></i>
+                            <span>Peças exclusivas e selecionadas</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-check-circle-fill text-custom-primary me-2"></i>
+                            <span>Atendimento personalizado</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-check-circle-fill text-custom-primary me-2"></i>
+                            <span>Qualidade premium</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-check-circle-fill text-custom-primary me-2"></i>
+                            <span>Tendências atuais</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-4 contact-info">
+                            <h4 class="card-title mb-4 text-custom-primary">Informações da Empresa</h4>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="bi bi-person-fill text-custom-primary me-2"></i>
+                                    <strong>Proprietária:</strong>
+                                </div>
+                                <p class="ms-4">Cristina Fernandes Vinhais</p>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="bi bi-tag text-custom-primary me-2"></i>
+                                    <strong>Nome Fantasia:</strong>
+                                </div>
+                                <p class="ms-4">Moda Bijoux</p>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="bi bi-file-earmark-text text-custom-primary me-2"></i>
+                                    <strong>CNPJ:</strong>
+                                </div>
+                                <p class="ms-4">39.775.650/0001-44</p>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="bi bi-calendar-check text-custom-primary me-2"></i>
+                                    <strong>Data Situação Cadastral:</strong>
+                                </div>
+                                <p class="ms-4">13/11/2020</p>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="bi bi-geo-alt text-custom-primary me-2"></i>
+                                    <strong>Endereço:</strong>
+                                </div>
+                                <p class="ms-4">Avenida Presidente JK, 958 - Setor Morada do Sol<br>Rio Verde - GO<br>CEP: 76907-585</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="depoimentos" class="py-5">
+        <div class="container">
+            <h2 class="section-title fw-bold">O que Nossas Clientes Dizem</h2>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex mb-3">
+                            <i class="bi bi-star-fill text-gold me-1"></i>
+                            <i class="bi bi-star-fill text-gold me-1"></i>
+                            <i class="bi bi-star-fill text-gold me-1"></i>
+                            <i class="bi bi-star-fill text-gold me-1"></i>
+                            <i class="bi bi-star-fill text-gold"></i>
+                        </div>
+                        <p>"Comprei um vestido para um casamento e recebi vários elogios! A qualidade do tecido é incrível e o caimento perfeito."</p>
+                        <strong>- Mariana Silva</strong>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex mb-3">
+                            <i class="bi bi-star-fill text-gold me-1"></i>
+                            <i class="bi bi-star-fill text-gold me-1"></i>
+                            <i class="bi bi-star-fill text-gold me-1"></i>
+                            <i class="bi bi-star-fill text-gold me-1"></i>
+                            <i class="bi bi-star-fill text-gold"></i>
+                        </div>
+                        <p>"Atendimento excelente! Me ajudaram a encontrar a peça ideal para minha formatura. Já indiquei para todas minhas amigas!"</p>
+                        <strong>- Carla Oliveira</strong>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex mb-3">
+                            <i class="bi bi-star-fill text-gold me-1"></i>
+                            <i class="bi bi-star-fill text-gold me-1"></i>
+                            <i class="bi bi-star-fill text-gold me-1"></i>
+                            <i class="bi bi-star-fill text-gold me-1"></i>
+                            <i class="bi bi-star-half text-gold"></i>
+                        </div>
+                        <p>"As blusas são lindas e de ótima qualidade. Sempre encontro o que preciso para compor meus looks do trabalho."</p>
+                        <strong>- Juliana Santos</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-3">Receba Nossas Novidades</h3>
+            <p class="mb-4">Cadastre-se e seja a primeira a saber sobre lançamentos e promoções exclusivas</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Seu melhor e-mail">
+                        <button class="btn btn-light" type="button">Cadastrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title fw-bold">Entre em Contato</h2>
+            
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4 class="mb-4 text-custom-primary">Nossa Loja</h4>
+                                    <p>
+                                        <i class="bi bi-geo-alt-fill text-custom-primary me-2"></i>
+                                        Av. Presidente JK, 958 - Morada do Sol<br>
+                                        Rio Verde - GO<br>
+                                        CEP: 76907-585
+                                    </p>
+                                    
+                                    <h4 class="mt-4 mb-3 text-custom-primary">Telefone</h4>
+                                    <p>
+                                        <i class="bi bi-telephone-fill text-custom-primary me-2"></i>
+                                        (64) 99939-0621
+                                    </p>
+                                    
+                                    <h4 class="mt-4 mb-3 text-custom-primary">Horário de Funcionamento</h4>
+                                    <p>
+                                        <i class="bi bi-clock-fill text-custom-primary me-2"></i>
+                                        Segunda a Sexta: 9h às 19h<br>
+                                        Sábado: 9h às 17h<br>
+                                        Domingo: Fechado
+                                    </p>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <h4 class="mb-4 text-custom-primary">Envie uma Mensagem</h4>
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="nome" class="form-label">Nome</label>
+                                            <input type="text" class="form-control" id="nome" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">E-mail</label>
+                                            <input type="email" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="telefone" class="form-label">Telefone</label>
+                                            <input type="tel" class="form-control" id="telefone">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="mensagem" class="form-label">Mensagem</label>
+                                            <textarea class="form-control" id="mensagem" rows="3" required></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-custom-primary w-100">Enviar Mensagem</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Moda Bijoux</h5>
+                    <p>Elegância e sofisticação para mulheres modernas</p>
+                    <p>&copy; 2023 Cristina Fernandes Vinhais - ME. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#inicio" class="text-white text-decoration-none">Início</a></li>
+                        <li><a href="#colecoes" class="text-white text-decoration-none">Coleções</a></li>
+                        <li><a href="#sobre" class="text-white text-decoration-none">Sobre</a></li>
+                        <li><a href="#contato" class="text-white text-decoration-none">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Redes Sociais</h5>
+                    <p>Siga-nos e fique por dentro das novidades:</p>
+                    <div class="d-flex">
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram" style="font-size: 1.5rem;"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook" style="font-size: 1.5rem;"></i></a>
+                        <a href="https://wa.me/5564999390621" target="_blank" class="text-white"><i class="bi bi-whatsapp" style="font-size: 1.5rem;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5564999390621" target="_blank" class="whatsapp-float">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
